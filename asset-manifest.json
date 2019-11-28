@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/alexandrapatriciosantos/GingerBreadMan/static/css/main.f4024e78.chunk.css",
+    "main.js": "/alexandrapatriciosantos/GingerBreadMan/static/js/main.1ba79c22.chunk.js",
+    "main.js.map": "/alexandrapatriciosantos/GingerBreadMan/static/js/main.1ba79c22.chunk.js.map",
+    "runtime-main.js": "/alexandrapatriciosantos/GingerBreadMan/static/js/runtime-main.3f6f174b.js",
+    "runtime-main.js.map": "/alexandrapatriciosantos/GingerBreadMan/static/js/runtime-main.3f6f174b.js.map",
+    "static/js/2.106dc600.chunk.js": "/alexandrapatriciosantos/GingerBreadMan/static/js/2.106dc600.chunk.js",
+    "static/js/2.106dc600.chunk.js.map": "/alexandrapatriciosantos/GingerBreadMan/static/js/2.106dc600.chunk.js.map",
+    "index.html": "/alexandrapatriciosantos/GingerBreadMan/index.html",
+    "precache-manifest.d9fbb3cb46611c5e890c20caa46fd87a.js": "/alexandrapatriciosantos/GingerBreadMan/precache-manifest.d9fbb3cb46611c5e890c20caa46fd87a.js",
+    "service-worker.js": "/alexandrapatriciosantos/GingerBreadMan/service-worker.js",
+    "static/css/main.f4024e78.chunk.css.map": "/alexandrapatriciosantos/GingerBreadMan/static/css/main.f4024e78.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3f6f174b.js",
+    "static/js/2.106dc600.chunk.js",
+    "static/css/main.f4024e78.chunk.css",
+    "static/js/main.1ba79c22.chunk.js"
+  ]
+}
