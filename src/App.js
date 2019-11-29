@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import HomeScreen from "./HomeScreen";
-import NavBar from "./NavBar";
-import Instructions from "./Instructions";
+// import HomeScreen from "./HomeScreen";
+// import NavBar from "./NavBar";
+// import Instructions from "./Instructions";
 import Board from "./Board";
 
 class App extends Component{
@@ -11,9 +11,9 @@ class App extends Component{
   render() {
     return (
       <>
-        <NavBar/>
+        {/* <NavBar/> */}
         <Switch>
-          <Route
+          {/* <Route
             exact path="/" render={() => 
               <HomeScreen/>
             }
@@ -22,9 +22,9 @@ class App extends Component{
             exact path="/instructions" render={() => 
               <Instructions/>
             }
-            />
+            /> */}
           <Route
-            exact path="/board" render={() => 
+            exact path="/" render={() => 
               <Board/>
             }
             />

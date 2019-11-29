@@ -11,12 +11,15 @@
 
 button{
     border-style: none;
-    border-radius: 5px;
+    border-radius: 50%;
     background-image: url("https://res.cloudinary.com/ddoc8nfxb/image/upload/v1574939071/harmkruyshaar090500007_q7b8ee.jpg");
     background-size: contain;
-    font-size: 30px;
-    padding: 20px;
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 10px;
     color: white;
     text-shadow: 1px 2px 2px rgba(0, 0, 0, 1);
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 1);
+    /* box-shadow: 0px 1px 2px rgba(0, 0, 0, 1); */
 }
+
+button:focus {outline:0;}

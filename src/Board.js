@@ -7,41 +7,41 @@ const TILES = [
 
         inOut: [1,2],
 
-        image : "https://res.cloudinary.com/ddoc8nfxb/image/upload/v1574957905/12_agw2i1.png",
+        image : "https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575033530/12_ywecq2.png",
     },
     {
 
         inOut: [1,3],
 
-        image : "https://res.cloudinary.com/ddoc8nfxb/image/upload/v1574957905/13_zbrit8.png",
+        image : "https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575033530/13_xs1t4u.png",
     },
     {
 
         inOut: [1,4],
 
-        image : "https://res.cloudinary.com/ddoc8nfxb/image/upload/v1574957905/14_mau2uu.png",    
+        image : "https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575033530/14_q88ao5.png",    
     },
     {
 
         inOut: [2,3],
 
-        image : "https://res.cloudinary.com/ddoc8nfxb/image/upload/v1574957905/23_kaubjk.png",
+        image : "https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575033530/23_g55p2d.png",
     },
     {
 
         inOut: [2,4],
 
-        image : "https://res.cloudinary.com/ddoc8nfxb/image/upload/v1574957905/24_gz6wi9.png",
+        image : "https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575033530/24_icr5v1.png",
     },
     {
 
         inOut: [3,4],
 
-        image : "https://res.cloudinary.com/ddoc8nfxb/image/upload/v1574957905/34_pnrdqd.png",
+        image : "https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575033530/34_bo2t1a.png",
     },
 ]
 
-const GRID_SIZE = 2; 
+const GRID_SIZE = 6; 
 
 export default class Board extends Component{
 
@@ -51,16 +51,16 @@ export default class Board extends Component{
         this.state = {
             grid: [], 
             gridSize: GRID_SIZE,
-            userOptions: TILES, 
+            userOptions: [], 
             selectedPlace: {pos:[0,0]},
-            // destinyPlace:{pos:[0,1]}, 
         };
       }
 
     componentDidMount = () => {
-        this.setState(
-            {grid: this.createGrid()}, 
-        )
+        
+        this.setState({grid: this.createGrid()})
+
+        this.setState({userOptions: this.createUserOptions()})
     }
 
     createGrid = () => {
@@ -74,87 +74,120 @@ export default class Board extends Component{
         return grid 
     }
 
-    selectGridPlace = (item) => {
-        this.setState({selectedPlace: item})
+    createUserOptions = () => {
+        let UserTiles = []
+        for(let i=0; i<4; i++){
+            let random = Math.floor((Math.random() * 6))
+            UserTiles.push(TILES[random])
+        }
+        return UserTiles
     }
 
-    isSelected = () => {
-        if(this.state.selectedPlace){
-            return "highlightClass"
-        }
+    selectGridPlace = (item) => {
+        this.setState({selectedPlace: item})
     }
 
     clickTile = (item) => {
 
         this.setState((state) => {
 
-
             const updatedGrid = state.grid.map((grid) => {
                 if(grid.pos === state.selectedPlace.pos) {
                   grid.played = item
-                //   let adjacent = [grid.pos[0]+1, grid.pos[1]+1]
-                //   console.log(adjacent, grid.pos[0]+1)
                 }
+            
                 return grid;
               })
 
+            const updatedUserOptions = state.userOptions.map(option => {
+                    if(item.inOut === option.inOut){
+                        let random = Math.floor((Math.random() * 6))
+                        return option = (TILES[random])
+                    }
+                    return option; 
+            })
+
             return {
             ...state,
-            grid: updatedGrid
+            grid: updatedGrid,
+            userOptions: updatedUserOptions
             }
           })
     }
+    
+    displayPlaceImage = (item) => {
+        if(item.pos[0] === 0 && item.pos[1] === 0){
+            return "https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575031153/ginger_grass-floor-png_rfa4be.png"
+        }
+        else if(item.pos[0]=== GRID_SIZE-1 && item.pos[1] === GRID_SIZE-1){
+            return "https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575031306/gingerhouse_grass-floor-png_dplulx.png"
+        }else if((item.pos[0]=== 2 && item.pos[1] === 1) || (item.pos[0]=== 4 && item.pos[1] === 3)){
+            return "https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575036424/milk_square_avlbz8.png"
+        }
+        else if(item.played){
+            return item.played.image  
+        }else if(item === this.state.selectedPlace){
+            return"https://www.yarwoodleather.com/wp-content/uploads/2016/12/Aneurin-Yellow-01.jpg"
+        }else if(
+            (this.state.selectedPlace.pos[0]+1 === item.pos[0] && this.state.selectedPlace.pos[1] ===  item.pos[1]) ||
+            (this.state.selectedPlace.pos[1]+1 === item.pos[1] && this.state.selectedPlace.pos[0] ===  item.pos[0]) ||
 
+            (this.state.selectedPlace.pos[0]-1 === item.pos[0] && this.state.selectedPlace.pos[1] ===  item.pos[1]) ||
+            (this.state.selectedPlace.pos[1]-1 === item.pos[1] && this.state.selectedPlace.pos[0] ===  item.pos[0])
+        ){
+        return "https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575028835/grass-floor-png_yrrjos.png"
+        } else {
+            return 'https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575030693/snowsquare_gg7gls.png'
+        } 
+    } 
+
+    newTiles = () => {
+        this.setState({
+            userOptions: this.createUserOptions()
+        })
+    }
 
 
     render() {
 
         return (
             <div className="container">
-                <div className="game">
-                <div className="gingerLeft">
-                    <img 
-                        src="https://res.cloudinary.com/ddoc8nfxb/image/upload/v1574936615/282749fe507ccbc57c839738ac599620_yzw70n.png" 
-                        alt="GingerBreadMan"
-                    />
-                </div>
                 <div className="board">
                     {this.state.grid.map((item) => {
                         return(
                             <div 
+                                className="boardPlace"
                                 key={item.pos} 
                                 style={{width: `${100/this.state.gridSize}%`, height: `${100/this.state.gridSize}%` }}
                                 onClick={()=>{this.selectGridPlace(item)}}
                             >
                                 <img 
-                                    src={item.played ? item.played.image : 'https://res.cloudinary.com/ddoc8nfxb/image/upload/v1574955874/istockphoto-480629555-612x612_k0lblw.jpg'} 
+                                    src={this.displayPlaceImage(item)} 
                                     alt="played"
                                 />
                             </div>
                         ) 
                     })}
                 </div> 
-                <div className="gingerRight">
-                    <img 
-                        src="https://res.cloudinary.com/ddoc8nfxb/image/upload/v1574936615/fliped_kissclipart-gingerbread-house-clipart-gingerbread-house-christ-1e7764fe2ef77f40_okqcoe.png" 
-                        alt="GingerBreadHouse"
-                    />
-                </div>
-            </div>
 
                 <div className="userOptions">
-                    {this.state.userOptions.map((item) => {
+                    {this.state.userOptions.map((item, i) => {
                         return(
                             <div
-                                className="playedImg" 
-                                key={item.inOut}
+                                className="playImg" 
+                                key={i}
                                 onClick={() => this.clickTile(item)}
                             >
-                                {item.inOut}
-                                <img src={item.image} alt="path"/>
+                                <img 
+                                    src={item.image} 
+                                    alt="path"
+                                />
                             </div>
                         ) 
                     })}
+                    <button
+                        onClick={this.newTiles}
+                    > Random </button>
                 </div>
             </div>
         );

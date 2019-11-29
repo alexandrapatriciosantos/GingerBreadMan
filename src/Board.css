@@ -4,10 +4,16 @@
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
+    background-color: black;
 }
 
-.board img{
+.boardPlace img{
     width: 100%;
+    height: 100%
+}
+
+.squares img{
+    object-fit: cover;
 }
 
 .userOptions{
@@ -18,25 +24,4 @@
 
 .userOptions img{
     width: 100px;
-}
-
-.gingerLeft img{
-    width: 100px;
-}
-
-.gingerRight img{
-    width: 100px;
-}
-
-.gingerRight{
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: flex-start;
-}
-.game{
-    display: flex;
-}
-
-.highlightClass{
-    opacity: 0.5;
 }
