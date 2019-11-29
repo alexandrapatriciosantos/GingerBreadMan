@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "49fa26e17470190b018dc2e2850abbf0",
+    "revision": "64db77d98fb09aff1296dc0b4079c8f9",
     "url": "/alexandrapatriciosantos/GingerBreadMan/index.html"
   },
   {
-    "revision": "f6a70f7ebe77d70c8829",
-    "url": "/alexandrapatriciosantos/GingerBreadMan/static/css/main.f4024e78.chunk.css"
+    "revision": "099ddf8f078f808eec68",
+    "url": "/alexandrapatriciosantos/GingerBreadMan/static/css/main.72558d86.chunk.css"
   },
   {
     "revision": "ea92e522bd0e65078a18",
     "url": "/alexandrapatriciosantos/GingerBreadMan/static/js/2.106dc600.chunk.js"
   },
   {
-    "revision": "f6a70f7ebe77d70c8829",
-    "url": "/alexandrapatriciosantos/GingerBreadMan/static/js/main.1ba79c22.chunk.js"
+    "revision": "099ddf8f078f808eec68",
+    "url": "/alexandrapatriciosantos/GingerBreadMan/static/js/main.16181937.chunk.js"
   },
   {
     "revision": "bd2201da9e90ddbf062c",

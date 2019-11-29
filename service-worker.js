@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/alexandrapatriciosantos/GingerBreadMan/precache-manifest.d9fbb3cb46611c5e890c20caa46fd87a.js"
+  "/alexandrapatriciosantos/GingerBreadMan/precache-manifest.3fa651b94cc6328be374aa7ce3d09cc0.js"
 );
 
 self.addEventListener('message', (event) => {
