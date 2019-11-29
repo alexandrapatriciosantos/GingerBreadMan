@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/GingerBreadMan/static/css/main.380e0f81.chunk.css",
-    "main.js": "/GingerBreadMan/static/js/main.928e0859.chunk.js",
-    "main.js.map": "/GingerBreadMan/static/js/main.928e0859.chunk.js.map",
+    "main.js": "/GingerBreadMan/static/js/main.f81d9203.chunk.js",
+    "main.js.map": "/GingerBreadMan/static/js/main.f81d9203.chunk.js.map",
     "runtime-main.js": "/GingerBreadMan/static/js/runtime-main.8afc8ee0.js",
     "runtime-main.js.map": "/GingerBreadMan/static/js/runtime-main.8afc8ee0.js.map",
-    "static/js/2.3c0ae22a.chunk.js": "/GingerBreadMan/static/js/2.3c0ae22a.chunk.js",
-    "static/js/2.3c0ae22a.chunk.js.map": "/GingerBreadMan/static/js/2.3c0ae22a.chunk.js.map",
+    "static/js/2.1e67fe87.chunk.js": "/GingerBreadMan/static/js/2.1e67fe87.chunk.js",
+    "static/js/2.1e67fe87.chunk.js.map": "/GingerBreadMan/static/js/2.1e67fe87.chunk.js.map",
     "index.html": "/GingerBreadMan/index.html",
-    "precache-manifest.8c2f1a2b82a974393777b6e8dff31b99.js": "/GingerBreadMan/precache-manifest.8c2f1a2b82a974393777b6e8dff31b99.js",
+    "precache-manifest.708191bb94b20b076fbefdcbe21c8d1a.js": "/GingerBreadMan/precache-manifest.708191bb94b20b076fbefdcbe21c8d1a.js",
     "service-worker.js": "/GingerBreadMan/service-worker.js",
     "static/css/main.380e0f81.chunk.css.map": "/GingerBreadMan/static/css/main.380e0f81.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.8afc8ee0.js",
-    "static/js/2.3c0ae22a.chunk.js",
+    "static/js/2.1e67fe87.chunk.js",
     "static/css/main.380e0f81.chunk.css",
-    "static/js/main.928e0859.chunk.js"
+    "static/js/main.f81d9203.chunk.js"
   ]
 }
