@@ -1,3 +1,10 @@
 html{
-    background-color:  #EBD7DD;
+    margin: 150px 350px 0px 350px ;
+    background-color:  #fafafa;
+    color: #0F0702;
+}
+
+img{
+    width: 40px;
+    /* height: 40px; */
 }

@@ -1,3 +1,5 @@
-.container{
-    margin: 0vw 20vw;
+.difficulty{
+    display: flex;
+    justify-content: space-between;
+    font-family: Candy;
 }

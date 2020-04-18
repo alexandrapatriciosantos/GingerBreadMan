@@ -1,20 +1,24 @@
-/* .bar{
-    background-color:   #d58d54 ;
-    padding: 30px 0px;
+.nav-bar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    /* padding: 30px 0px; */
     width: 100%;
+    background-color:   #4b250a ;
     display: flex;
+    justify-content: center;
 }
 
-a{
+.nav-bar a{
     text-decoration: none;
-    color: white;
+    text-transform: uppercase;
     font-weight: bold;
     font-size: 30px;
-    text-shadow: 1px 1px  #DFBEA6;
-    padding: 0px 30px;
-    margin: 0px 30px;
+    color: #e6cc56;
+    text-shadow: 1px 1px  #ccbc75;
+    margin: 30px 150px;
 }
 
-a:hover{
-color:  #eeebd9 ;
-} */
+.nav-bar a:hover{
+color:  #ffeb92 ;
+}

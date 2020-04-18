@@ -1,22 +1,34 @@
-import React from "react";
-import  { NavLink } from "react-router-dom"
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './NavBar.css';
 
-const NavBar = () => {
+const NavBar = () => (
+  <div className="nav-bar">
+    <Link
+      exact
+      to="/"
+    >
+      {' '}
+Home
+      {' '}
+    </Link>
+    <Link
+      exact
+      to="/instructions"
+    >
+      {' '}
+Instructions
+      {' '}
+    </Link>
+    <Link
+      exact
+      to="/play"
+    >
+Play see comment
+      {' '}
+    </Link> 
+    {/* if no size value was selected, show options first ,now default 6  */}
+  </div>
+);
 
-    return(
-        <div className="bar">
-            <NavLink 
-                exact to="/"
-            > Home </NavLink>
-            <NavLink 
-                exact to="/instructions"
-            > Instructions </NavLink>
-            <NavLink 
-                exact to="/board"
-            >Board </NavLink>
-        </div>
-    );
-}
-
-export default NavBar; 
+export default NavBar;

@@ -1,0 +1,17 @@
+.home-container{
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-container img{
+    height: 200px;
+    width: auto;
+}
+
+.home-container h1{
+    text-transform: uppercase;
+    text-shadow: #29180e;
+}
