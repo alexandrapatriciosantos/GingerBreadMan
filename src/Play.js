@@ -1,9 +1,9 @@
 import React from 'react';
-import './Board.css';
 import NavBar from './NavBar';
 import Board from './Board';
 import Difficulty from './Difficulty';
 import Options from './Options';
+import './Play.css';
 
 const Play = (
   {

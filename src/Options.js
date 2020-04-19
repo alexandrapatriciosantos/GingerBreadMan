@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import './Play.css';
 
 const Options = (
   {
@@ -10,14 +10,13 @@ const Options = (
   },
 ) => (
   <div className="userOptions">
-    {userOptions.map((item, i) => (
+    {userOptions.map((item) => (
       <button
         type="button"
-        key={i}
         onClick={() => clickTile(item)}
+        className="play-img"
       >
         <img
-          className="play-img"
           src={item.image}
           alt="path"
         />
@@ -29,7 +28,7 @@ const Options = (
       className="peppermint-btn"
     >
       {' '}
-Random
+      Random
     </button>
   </div>
 );

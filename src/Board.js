@@ -1,5 +1,4 @@
 import React from 'react';
-import './Board.css';
 import PropTypes from 'prop-types';
 
 
@@ -38,25 +37,35 @@ const Board = (
     return 'https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575030693/snowsquare_gg7gls.png'; // inactive, not yet played tile
   };
 
+  const buttonStyle = (item) => {
+    return {
+
+      backgroundImage: `url(${displayPlaceImage(item)})`,
+      width: `${100 / gridSize}px`,
+      height: `${100 / gridSize}px`,
+      backgroundColor: '#00FF00',
+      margin: 0,
+      padding: 0,
+    };
+  };
   return (
     <>
       <div className="board">
         {
-            grid.map((item) => (
-              <button
-                type="button"
-                className="single-tile"
-                key={item.pos}
-                style={{ width: `${100 / gridSize}%`, height: `${100 / gridSize}%` }}
-                onClick={() => { onSelectGridPlace(item); }}
-              >
-                <img
-                  src={displayPlaceImage(item)}
-                  style={{ width: `${100 / gridSize}px`, height: `${100 / gridSize}px` }}
-                  alt="played"
-                />
-              </button>
-            ))
+          grid.map((item) => (
+            //   <div
+            //     key={i}
+            //     className="single-tile"
+            // </div>
+            //   >
+            <button
+              type="button"
+              key={item.pos}
+              style={buttonStyle(item)}
+              onClick={() => { onSelectGridPlace(item); }}
+              label="bla"
+            />
+          ))
 }
       </div>
     </>

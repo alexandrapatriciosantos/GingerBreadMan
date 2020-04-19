@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Instructions.css';
 import PropTypes from 'prop-types';
 import NavBar from './NavBar';
@@ -27,26 +27,59 @@ const Instructions = ({ selectGridSize }) => {
     },
   ];
 
+
+  const [index, setIndex] = useState(0);
+
+  const back = () => {
+    if (index > 0) setIndex(index - 1);
+  };
+  const next = () => {
+    if (index < instructions.length) {
+      setIndex(index + 1);
+    }
+  };
+
+
   return (
     <>
       <NavBar />
-      <div>
-        <h1>Help Mr. Gingerbread find  his way back home in time for Christmas</h1>
-      </div>
-      <div>
+      <h1>Help Mr. Gingerbread find  his way back home in time for Christmas</h1>
+      <div className={index === instructions.length - 1 ? 'none' : ''}>
         <h2>Rules</h2>
-        {instructions.map((i) => (
-          <>
-            <h2>
-              {i.title}
-            </h2>
-            <p>
-              {i.content}
-            </p>
-          </>
-        ))}
+        <h2>
+          {instructions[index].title}
+        </h2>
+        <p>
+          {instructions[index].content}
+        </p>
       </div>
-      <Difficulty selectGridSize={selectGridSize} />
+
+      <div className={index === instructions.length - 1 ? '' : 'none'}>
+        <Difficulty
+          selectGridSize={selectGridSize}
+        />
+      </div>
+
+      <div>
+        <button
+          type="button"
+          onClick={() => back()}
+          className={index === 0 ? 'none' : ''}
+        >
+          {' '}
+          Back
+        </button>
+        <button
+          type="button"
+          className={index === instructions.length - 1 ? 'none' : ''}
+          onClick={() => next()}
+        >
+          {' '}
+          Next
+          {' '}
+        </button>
+      </div>
+
     </>
   );
 };
