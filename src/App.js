@@ -12,117 +12,133 @@ class App extends Component {
     super(props);
 
     this.state = {
-      gridSize: "",
+      gridSize: "", 
       grid: [],
-      selectedPlace: { pos: [0, 0] },
+      selectedPlace: { pos :  [0, 0] },
       userOptions: [],
+      manYPos: 0,
+      houseYPos: 0,
     };
   }
 
-  componentDidMount = () => {
-    this.setState({grid: this.createGrid()})
-    this.setState({userOptions: this.createUserOptions()})
+componentDidMount = () => {
+  this.setState({grid: this.createGrid()}) // TRY TO REMOVE THIS LATER
+  this.setState({userOptions: this.createUserOptions()})
+}
 
+randomPos = () => {
+  const length = this.state.gridSize - 1;
+  return Math.floor((Math.random() * length));
+}; // generates a random number within gridSize length
+
+selectGridSize = (size) => {
+  this.setState({gridSize: size}, ()=>{
+    this.setState({
+      grid: this.createGrid(), 
+      manYPos: this.randomPos(),
+      houseYPos: this.randomPos(),
+    }, () =>{
+      this.setState({
+        selectedPlace: { pos: [this.state.manYPos, 0]}
+      })
+    });
+  });
+}; //takes difficulty selected, sets as state .then sets state for grid, man and house positions .then sets adjusts selectedPlace to match man position 
+  
+createGrid = () => {
+  let grid = [];
+  
+  for(let i=0; i<(this.state.gridSize); i++){
+    for(let j=0; j<(this.state.gridSize); j++){
+      grid.push({pos:[i,j]})
+      }
   }
+  return grid 
+} // creates original array of arrays containing two coordinates.
 
-  selectGridSize = (size) => {
-    this.setState({gridSize: size}, ()=>{
-      this.setState({grid: this.createGrid()})
-    })
-    // functional set satate, grid must be created again? use .then 
-  };
-
-  createGrid = () => {
-    let grid = [];
-    
-    for(let i=0; i<(this.state.gridSize); i++){
-        for(let j=0; j<(this.state.gridSize); j++){
-            grid.push({pos:[i,j]})
-        }
-    }
-    return grid 
-  }
-  createUserOptions = () => {
+createUserOptions = () => {
     let UserTiles = []
     for(let i=0; i<4; i++){
         let random = Math.floor((Math.random() * 6))
         UserTiles.push(Tiles[random])
     }
     return UserTiles
-}
+}; // selects four random tiles to be displayed at the bottom div.
 
 newTiles = () => {
   this.setState({
       userOptions: this.createUserOptions()
   })
-}
+}; // comands new random options to be generated and sets them as state.
 
-  selectGridPlace = (item) => {
-    this.setState({selectedPlace: item})
-  }
+selectGridPlace = (item) => {
+  this.setState({selectedPlace: item})
+} // takes last clicked place and sets it as state.
 
-  clickTile = (item) => {
-    this.setState((state) => {
-      console.log(state)
-      const updatedGrid = state.grid.map((grid) => {
-          if(grid.pos === state.selectedPlace.pos) {
-            grid.played = item
-          }
+clickTile = (item) => {
+  this.setState((state) => {
+    const updatedGrid = state.grid.map((grid) => {
+        if(grid.pos === state.selectedPlace.pos) {
+          grid.played = item
+        }
 
-          return grid;
-        });
-
-      const updatedUserOptions = state.userOptions.map(option => {
-              if(item.inOut === option.inOut){
-                  let random = Math.floor((Math.random() * 6))
-                  return option = (Tiles[random])
-              }
-              return option;
+        return grid;
       });
 
-    return {
-      ...state,
-      grid: updatedGrid,
-      userOptions: updatedUserOptions
-    }
-  })
+    const updatedUserOptions = state.userOptions.map(option => {
+            if(item.inOut === option.inOut){
+                let random = Math.floor((Math.random() * 6))
+                return option = (Tiles[random])
+            }
+            return option;
+    });
+
+  return {
+    ...state,
+    grid: updatedGrid,
+    userOptions: updatedUserOptions
+  }
+})
 }
 
-  render() {
-    return (
-      <>
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => <HomeScreen />}
-          />
-          <Route
-            exact
-            path="/play"
-            render={() => <Play 
-              gridSize={this.state.gridSize}
-              grid={this.state.grid}
-              selectGridSize={this.selectGridSize}
-              updateGrid={this.updateGrid}
-              clickTile={this.clickTile}
-              selectGridPlace={this.selectGridPlace}
-              selectedPlace={this.state.selectedPlace}
-              userOptions={this.state.userOptions}
-              newTiles={this.newTiles}
-            />}
-          />
-          <Route
-            exact
-            path="/instructions"
-            render={() => <Instructions 
-              selectGridSize={this.selectGridSize}
-            />}
-          />
-        </Switch>
-      </>
-    );
-  }
+
+render() {
+  return (
+    <>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={() => <HomeScreen />}
+        />
+        <Route
+          exact
+          path="/play"
+          render={() => <Play 
+            gridSize={this.state.gridSize}
+            grid={this.state.grid}
+            selectGridSize={this.selectGridSize}
+            updateGrid={this.updateGrid}
+            clickTile={this.clickTile}
+            selectGridPlace={this.selectGridPlace}
+            selectedPlace={this.state.selectedPlace}
+            userOptions={this.state.userOptions}
+            newTiles={this.newTiles}
+            manYPos={this.state.manYPos}
+            houseYPos={this.state.houseYPos}
+          />}
+        />
+        <Route
+          exact
+          path="/instructions"
+          render={() => <Instructions 
+            selectGridSize={this.selectGridSize}
+          />}
+        />
+      </Switch>
+    </>
+  );
+}
 }
 
 export default App;

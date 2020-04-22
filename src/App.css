@@ -5,7 +5,6 @@ button{
     background-size: cover;
     background-repeat: no-repeat;
     font-weight: 900;
-    font-size: 40px;
     margin: 20px;
     color: #f1fabc; 
     /* text-shadow: 4px 4px 1px ##0F0702; */
@@ -30,6 +29,7 @@ button:focus {
     border-radius: 50%;
     width: 150px;
     height: 150px;
+    font-size: 40px;
 }
 
 .chocolat-btn{
@@ -38,6 +38,7 @@ button:focus {
     border-radius: 5px;
     height: 100px;
     width: 200px;
+    font-size: 40px;
 
 }
 

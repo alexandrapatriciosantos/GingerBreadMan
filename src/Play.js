@@ -15,6 +15,8 @@ const Play = (
     userOptions,
     clickTile,
     newTiles,
+    manYPos, 
+    houseYPos,
   },
 ) => {
   const display = () => {
@@ -28,6 +30,8 @@ const Play = (
           selectedPlace={selectedPlace}
           grid={grid}
           gridSize={gridSize}
+          manYPos={manYPos}
+          houseYPos={houseYPos}
         />
         <Options
           userOptions={userOptions}
