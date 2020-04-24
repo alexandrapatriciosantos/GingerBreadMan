@@ -19,7 +19,7 @@ const Difficulty = ({ selectGridSize }) => {
             onClick={() => selectDifficulty(6)}
           >
             {' '}
-Easy
+            Easy
           </button>
         </Link>
         <Link exact to="/play">
@@ -29,7 +29,7 @@ Easy
             onClick={() => selectDifficulty(12)}
           >
             {' '}
-Medium
+            Medium
           </button>
         </Link>
         <Link exact to="/play">
@@ -39,7 +39,7 @@ Medium
             onClick={() => selectDifficulty(18)}
           >
             {' '}
-Hard
+            Hard
           </button>
         </Link>
       </div>

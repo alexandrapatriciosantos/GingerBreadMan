@@ -39,4 +39,15 @@ const Options = (
   );
 };
 
+Options.propTypes = {
+  userOptions: PropTypes.arrayOf(
+    PropTypes.shape({
+      image: PropTypes.string.isRequired,
+      inOut: PropTypes.arrayOf(PropTypes.number.isRequired),
+    }).isRequired,
+  ).isRequired,
+  clickTile: PropTypes.func.isRequired,
+  newTiles: PropTypes.func.isRequired,
+};
+
 export default Options;

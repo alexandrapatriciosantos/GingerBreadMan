@@ -9,7 +9,7 @@ const NavBar = () => (
       to="/"
     >
       {' '}
-Home
+      Home
       {' '}
     </Link>
     <Link
@@ -17,16 +17,16 @@ Home
       to="/instructions"
     >
       {' '}
-Instructions
+      Instructions
       {' '}
     </Link>
     <Link
       exact
       to="/play"
     >
-Play see comment
+      Play see comment
       {' '}
-    </Link> 
+    </Link>
     {/* if no size value was selected, show options first ,now default 6  */}
   </div>
 );

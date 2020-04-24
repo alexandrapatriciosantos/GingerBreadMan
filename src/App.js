@@ -18,6 +18,7 @@ class App extends Component {
       userOptions: [],
       manYPos: 0,
       houseYPos: 0,
+      obstacles: [],
     };
   }
 
@@ -31,12 +32,30 @@ randomPos = () => {
   return Math.floor((Math.random() * length));
 }; // generates a random number within gridSize length
 
+obstacles = () => {
+  const quantity = this.state.gridSize/3  
+  const obstacles = []
+  for( let i=0; i<quantity; i++){
+    const x = this.randomPos()
+    const y = this.randomPos()
+
+    console.log('obstacles', obstacles, 'x', x, 'y', y);
+    // if() // dont repeat numbers for x || y
+    // if() // y !== this.state.manYPos 
+    // if() // y !== this.state.houseYPos 
+    // if() // dont repeat numbers for x || y
+    obstacles.push([x, y]);
+  }
+  return obstacles
+}
+
 selectGridSize = (size) => {
   this.setState({gridSize: size}, ()=>{
     this.setState({
-      grid: this.createGrid(), 
+      grid: this.createGrid(),
       manYPos: this.randomPos(),
       houseYPos: this.randomPos(),
+      obstacles: this.obstacles(),
     }, () =>{
       this.setState({
         selectedPlace: { pos: [this.state.manYPos, 0]}
@@ -126,6 +145,7 @@ render() {
             newTiles={this.newTiles}
             manYPos={this.state.manYPos}
             houseYPos={this.state.houseYPos}
+            obstacles={this.state.obstacles}
           />}
         />
         <Route
