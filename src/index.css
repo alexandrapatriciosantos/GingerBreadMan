@@ -1,10 +1,13 @@
 html{
-    margin: 150px 350px 0px 350px ;
+    margin: 150px 500px 0px 500px ;
     background-color:  #fafafa;
     color: #0F0702;
 }
 
 img{
     width: 40px;
-    /* height: 40px; */
 }
+
+body {
+    font-family: 'Snowkybrush', sans-serif
+  }

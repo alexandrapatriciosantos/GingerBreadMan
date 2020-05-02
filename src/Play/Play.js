@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes, { arrayOf } from 'prop-types';
-import NavBar from './NavBar';
+import NavBar from '../HomeScreen/NavBar';
 import Board from './Board';
-import Difficulty from './Difficulty';
+import Difficulty from '../Instructions/Difficulty';
 import Options from './Options';
 import './Play.css';
 
@@ -15,11 +15,12 @@ const Play = (
     selectedPlace,
     grid,
     userOptions,
-    clickTile,
+    playTile,
     newTiles,
     manYPos,
     houseYPos,
     obstacles,
+    nearbyTiles,
   },
 ) => {
   const display = () => {
@@ -36,10 +37,11 @@ const Play = (
           manYPos={manYPos}
           houseYPos={houseYPos}
           obstacles={obstacles}
+          nearbyTiles={nearbyTiles}
         />
         <Options
           userOptions={userOptions}
-          clickTile={clickTile}
+          playTile={playTile}
           newTiles={newTiles}
         />
       </>
@@ -74,7 +76,7 @@ Play.propTypes = {
       inOut: PropTypes.arrayOf(PropTypes.number.isRequired),
     }).isRequired,
   ).isRequired,
-  clickTile: PropTypes.func.isRequired,
+  playTile: PropTypes.func.isRequired,
   newTiles: PropTypes.func.isRequired,
 };
 

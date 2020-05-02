@@ -4,7 +4,7 @@ import PropTypes, { arrayOf } from 'prop-types';
 
 const Board = (
   {
-    selectGridPlace, grid, gridSize, selectedPlace, manYPos, houseYPos, obstacles,
+    selectGridPlace, grid, gridSize, selectedPlace, manYPos, houseYPos, obstacles, nearbyTiles,
   },
 ) => {
   const onSelectGridPlace = (item) => {
@@ -15,15 +15,14 @@ const Board = (
     const start = [manYPos, 0];
     const finish = [houseYPos, gridSize - 1];
 
-    obstacles.forEach((o) => {
-      if (item.pos[0] === o[0] && item.pos[1] === o[1]) {
-        console.log('o', o[1], 'item.pos[1]', item.pos[1]);
+    for (let i = 0; i < obstacles.length; i++) {
+      if (item.pos[0] === obstacles[i][0] && item.pos[1] === obstacles[i][1]) {
         return {
           url: 'https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575036424/milk_square_avlbz8.png',
           hoverStyle: 'none',
         }; // milk glass obstacles
       }
-    });
+    }
 
     if (start[0] === item.pos[0] && start[1] === item.pos[1]) {
       return {
@@ -40,16 +39,6 @@ const Board = (
       };
     } // finishing place
 
-
-    // obstacles.map((o) => {
-    //   if ( item.pos[0] === o[0] && item.pos[1] === o[1]) {
-    //     return {
-    //       url: 'https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575036424/milk_square_avlbz8.png',
-    //       hoverStyle: 'none',
-    //     }; // milk glass obstacles
-    //   }
-    // });
-
     if (item.played) {
       return {
         url: item.played.image,
@@ -62,16 +51,24 @@ const Board = (
       };
     }
 
-    if (
-      (selectedPlace.pos[0] + 1 === item.pos[0] && selectedPlace.pos[1] === item.pos[1])
-      || (selectedPlace.pos[1] + 1 === item.pos[1] && selectedPlace.pos[0] === item.pos[0])
-      || (selectedPlace.pos[0] - 1 === item.pos[0] && selectedPlace.pos[1] === item.pos[1])
-      || (selectedPlace.pos[1] - 1 === item.pos[1] && selectedPlace.pos[0] === item.pos[0])
-    ) {
-      return {
-        url: 'https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575028835/grass-floor-png_yrrjos.png',
-      };
-    } // adjacent to currently selected
+    // for (let i = 0; i < nearbyTiles.length; i++) {
+    //   if (item.pos[0] === nearbyTiles[i][0] && item.pos[1] === nearbyTiles[i][1]) {
+    //     return {
+    //       url: 'https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575028835/grass-floor-png_yrrjos.png',
+    //     };
+    //   } // adjacent to currently selected
+    // }
+
+    // if (
+    //   (selectedPlace.pos[0] + 1 === item.pos[0] && selectedPlace.pos[1] === item.pos[1])
+    //   || (selectedPlace.pos[1] + 1 === item.pos[1] && selectedPlace.pos[0] === item.pos[0])
+    //   || (selectedPlace.pos[0] - 1 === item.pos[0] && selectedPlace.pos[1] === item.pos[1])
+    //   || (selectedPlace.pos[1] - 1 === item.pos[1] && selectedPlace.pos[0] === item.pos[0])
+    // ) {
+    //   return {
+    //     url: 'https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575028835/grass-floor-png_yrrjos.png',
+    //   };
+    // } // adjacent to currently selected
 
     return {
       url: 'https://res.cloudinary.com/ddoc8nfxb/image/upload/v1575030693/snowsquare_gg7gls.png',

@@ -5,7 +5,7 @@ import './Play.css';
 const Options = (
   {
     userOptions,
-    clickTile,
+    playTile,
     newTiles,
   },
 ) => {
@@ -22,7 +22,7 @@ const Options = (
           key={i}
           type="button"
           label="option-button"
-          onClick={() => clickTile(item)}
+          onClick={() => playTile(item)}
           className="play-img"
           style={buttonStyle(item)}
         />
@@ -46,7 +46,7 @@ Options.propTypes = {
       inOut: PropTypes.arrayOf(PropTypes.number.isRequired),
     }).isRequired,
   ).isRequired,
-  clickTile: PropTypes.func.isRequired,
+  playTile: PropTypes.func.isRequired,
   newTiles: PropTypes.func.isRequired,
 };
 

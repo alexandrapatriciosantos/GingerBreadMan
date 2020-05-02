@@ -7,7 +7,9 @@ import * as serviceWorker from './serviceWorker';
 
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter
+    basename="ginger-bread"
+  >
     <App />
   </BrowserRouter>,
   document.getElementById('root'),

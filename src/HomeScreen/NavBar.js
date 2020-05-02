@@ -24,10 +24,9 @@ const NavBar = () => (
       exact
       to="/play"
     >
-      Play see comment
+      Play
       {' '}
     </Link>
-    {/* if no size value was selected, show options first ,now default 6  */}
   </div>
 );
 

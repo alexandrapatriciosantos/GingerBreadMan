@@ -19,7 +19,7 @@
 
 
 .userOptions{
-    /* background-color: rebeccapurple; */
+    background-color: rebeccapurple;
     position: fixed;
     bottom: 0;
     right: 0;
@@ -28,8 +28,13 @@
     justify-content: space-between
 };
 
+.userOptions img{
+    border-color: seagreen;
+    max-width: 60px;
+
+}
 .play-img{
-    min-width: 70px;
+    border-style: solid;
 
 }
 
